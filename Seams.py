@@ -58,6 +58,7 @@ def energy_img_seam(energy):
     for i in range(1, M):
         # Figure out the sum of the energy
         # from left, up, and right
+        # (A fast numpy version that knocks a whole row out at once)
         L = np.zeros(N)
         L[1::] = total_energy[i-1, 0:-1]
         L[0] = np.inf
