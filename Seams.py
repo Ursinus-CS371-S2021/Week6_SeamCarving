@@ -48,8 +48,15 @@ def energy_img_seam(energy):
           element in the optimal seam, from row 0 to row M-1
     """
     M, N = energy.shape
+    # total_energy is a MxN array that holds the minimum energy over 
+    # all seams that start at the top and reach this pixel
     total_energy = np.zeros_like(energy)
+    # choices is A MxN array that holds:
+    # a 0 if the optimal seam came from [i-1, j-1]
+    # a 1 if the optimal seam came from [i-1, j]
+    # a 2 if the optimal seam came from [i-1, j+1]
     choices = np.zeros(energy.shape, dtype=int)
+    
     ## Step 1: Perform dynamic programming to determine 
     ## the cost of the minimum energy seam up to each pixel
     # Base Case: First row
