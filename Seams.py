@@ -74,9 +74,8 @@ def energy_img_seam(energy):
     # row and start there
     j = np.argmin(total_energy[-1, :])
     seam = [0]*M
-    seam[0] = j
     ## TODO: Complete the backtracing to fill in the column
-    ## indices in seam
+    ## indices in seam, starting at row M-1
     return seam
 
 
